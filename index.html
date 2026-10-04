@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#07112e">
+<meta name="description" content="Vortexia — premium modular Discord bot documentation, commands, systems, setup guides, invite and support.">
+<title>Vortexia — Discord Bot</title>
+<link rel="icon" href="assets/vx.png">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app-shell">
+<aside class="sidebar" id="sidebar">
+  <div class="brand"><img src="assets/vx.png" alt="Vortexia"><div><strong>VORTEXIA</strong><small>DISCORD BOT</small></div></div>
+  <button class="mobile-close" id="closeNav" aria-label="Close menu">×</button>
+  <a class="side-invite" href="https://discord.com/oauth2/authorize?client_id=1205185289627115670&permissions=8&scope=bot" target="_blank" rel="noopener">⚡ Add Vortexia</a>
+  <a class="side-support" href="https://discord.gg/7RfWAKeAZZ" target="_blank" rel="noopener">💬 Support Server</a>
+  <label class="search"><span>⌕</span><input id="search" type="search" placeholder="Search commands..." autocomplete="off"></label>
+  <nav id="nav" aria-label="Documentation navigation">
+    <button data-section="home" class="active">⌂ <span>Overview</span></button>
+    <button data-section="quickstart">⚡ <span>Get Started</span></button>
+    <button data-section="commands">⌘ <span>Commands</span></button>
+    <button data-section="systems">◈ <span>Systems</span></button>
+    <button data-section="music">♫ <span>Music</span></button>
+    <button data-section="minecraft">⛏ <span>Minecraft</span></button>
+    <button data-section="permissions">♜ <span>Permissions</span></button>
+    <button data-section="selfhost">⚙ <span>Self-Hosting</span></button>
+  </nav>
+  <div class="side-foot">Vortexia • Node 25.9.0<br>discord.js 14.x</div>
+</aside>
+
+<main class="main">
+<header class="topbar">
+  <button id="openNav" class="hamb" aria-label="Open menu">☰</button>
+  <div class="crumb">Vortexia <span>/</span> <strong id="crumb">Overview</strong></div>
+  <div class="top-actions">
+    <a href="https://discord.com/oauth2/authorize?client_id=1205185289627115670&permissions=8&scope=bot" target="_blank" rel="noopener">Add Bot ↗</a>
+    <a href="https://discord.gg/7RfWAKeAZZ" target="_blank" rel="noopener">Support ↗</a>
+  </div>
+</header>
+
+<section id="home" class="section active">
+  <div class="hero">
+    <div class="hero-copy">
+      <div class="eyebrow">PREMIUM MODULAR DISCORD BOT</div>
+      <h1>Meet <span>Vortexia.</span></h1>
+      <p>One powerful Discord bot for moderation, security, tickets, invite tracking, economy, leveling, music, AI, Minecraft tools, builders and server utilities.</p>
+      <div class="hero-actions">
+        <a class="btn primary" href="https://discord.com/oauth2/authorize?client_id=1205185289627115670&permissions=8&scope=bot" target="_blank" rel="noopener">Add Vortexia to Discord →</a>
+        <a class="btn ghost" href="https://discord.gg/7RfWAKeAZZ" target="_blank" rel="noopener">Join Support →</a>
+      </div>
+      <div class="hero-links"><button data-section="quickstart">How to use</button><button data-section="commands">Browse commands</button><button data-section="systems">Explore systems</button></div>
+    </div>
+    <img class="hero-logo" src="assets/vx.png" alt="Vortexia logo">
+  </div>
+  <div class="stats">
+    <div><b>80+</b><span>documented commands</span></div><div><b>10+</b><span>major systems</span></div><div><b>AI</b><span>text + image chat</span></div><div><b>Music</b><span>advanced player</span></div>
+  </div>
+  <div class="section-title"><div class="eyebrow">WHY VORTEXIA</div><h2>Everything your server needs.</h2><p>Designed around practical server management with interactive panels and easy-to-find commands.</p></div>
+  <div class="grid three">
+    <article class="feature"><span>🛡️</span><h3>Moderation & Security</h3><p>Ban, kick, timeout, warnings, AutoMod, locks, slowmode and more.</p></article>
+    <article class="feature"><span>🎫</span><h3>Tickets & Delivery</h3><p>Professional ticket panels, claiming, user management and closing workflows.</p></article>
+    <article class="feature"><span>📊</span><h3>Community Systems</h3><p>Invites, welcome, leveling, economy, reviews, giveaways and dashboards.</p></article>
+    <article class="feature"><span>🎵</span><h3>Music</h3><p>Advanced playback panel with queue, controls and music settings.</p></article>
+    <article class="feature"><span>🤖</span><h3>AI Tools</h3><p>AI chat utilities for text and image-based interactions.</p></article>
+    <article class="feature"><span>🧱</span><h3>Builders</h3><p>Create rich Discord messages and Components V2 interfaces.</p></article>
+  </div>
+</section>
+
+<section id="quickstart" class="section">
+  <div class="page-head"><div class="eyebrow">START HERE</div><h2>Get Vortexia running in minutes.</h2><p>No HTML or coding is needed to use Vortexia on a normal Discord server.</p></div>
+  <div class="steps">
+    <article><b>01</b><h3>Add the bot</h3><p>Use the official invite button. Choose your server and authorize the requested Discord permissions.</p><a class="btn primary" href="https://discord.com/oauth2/authorize?client_id=1205185289627115670&permissions=8&scope=bot" target="_blank" rel="noopener">Add Vortexia ↗</a></article>
+    <article><b>02</b><h3>Open help</h3><p>Type <code>/help</code> in your server to discover the available command categories and tools.</p></article>
+    <article><b>03</b><h3>Try basic commands</h3><p>Start with <code>/ping</code>, <code>/serverinfo</code>, <code>/userinfo</code> or <code>/dashboard</code>.</p></article>
+    <article><b>04</b><h3>Configure systems</h3><p>Use interactive setup commands such as <code>/automod</code>, <code>/welcome</code>, <code>/ticket</code>, <code>/invite-panel</code> and <code>/level-setup</code>.</p></article>
+  </div>
+  <div class="callout"><b>Need help?</b> Join the <a href="https://discord.gg/7RfWAKeAZZ" target="_blank" rel="noopener">Vortexia Support Server</a> for assistance, updates and community support.</div>
+</section>
+
+<section id="commands" class="section">
+  <div class="page-head"><div class="eyebrow">COMMAND REFERENCE</div><h2>Command Center</h2><p>Search, filter and open any command to see its usage. This directory is generated from the Vortexia docs data.</p></div>
+  <div class="command-toolbar"><div class="tabs" id="tabs"></div></div>
+  <div id="commandGrid" class="commands"></div><div id="noResults" class="empty" hidden>No commands matched your search.</div>
+</section>
+
+<section id="systems" class="section">
+  <div class="page-head"><div class="eyebrow">CORE FEATURES</div><h2>Built-in Systems</h2><p>Vortexia combines commands with interactive panels so server setup stays simple.</p></div>
+  <div class="system-grid">
+    <article><img src="assets/moderation.png" alt="Moderation"><h3>Moderation</h3><p>Ban, kick, timeout, warnings, purge, locks, unlocks, slowmode and channel controls.</p></article>
+    <article><img src="assets/security.png" alt="Security"><h3>AutoMod & Security</h3><p>AutoMod configuration, banned words and strike tracking.</p></article>
+    <article><img src="assets/tickets.png" alt="Tickets"><h3>Tickets</h3><p>Panels, claiming, adding users, renaming and closing tickets.</p></article>
+    <article><img src="assets/economy.png" alt="Economy"><h3>Economy</h3><p>Balance, daily, work, pay, leaderboard and admin balance tools.</p></article>
+    <article><img src="assets/welcome.png" alt="Welcome"><h3>Welcome</h3><p>Interactive welcome configuration for member joins and onboarding.</p></article>
+    <article><img src="assets/overview.png" alt="Invite tracker"><h3>Invite Tracker</h3><p>Invite statistics, panels, messages, resets and tracking controls.</p></article>
+    <article><img src="assets/utility.png" alt="Leveling"><h3>Leveling</h3><p>Ranks, leaderboards and an interactive leveling setup dashboard.</p></article>
+    <article><img src="assets/builders.png" alt="Builders"><h3>Builders</h3><p>Embed builder and Components V2 builder/editing tools.</p></article>
+  </div>
+</section>
+
+<section id="music" class="section">
+  <div class="page-head"><div class="eyebrow">AUDIO</div><h2>Advanced Music</h2><p>Use <code>/music</code> to open the Vortexia music player. A query can optionally be supplied to start playback.</p></div>
+  <div class="music-panel"><img src="assets/music.png" alt="Vortexia music"><div><h3>Player controls</h3><ul><li>Search and play music.</li><li>Pause / resume.</li><li>Previous, rewind, forward and skip.</li><li>Volume and stop controls.</li><li>Queue, shuffle, loop and playback settings.</li><li>Lyrics and other player utilities when available.</li></ul><code>/music [query]</code></div></div>
+  <div class="callout"><b>Music troubleshooting:</b> Voice playback depends on the bot's voice/audio dependencies and Discord voice availability. If playback does not start, check the bot's voice permissions and the support server.</div>
+</section>
+
+<section id="minecraft" class="section">
+  <div class="page-head"><div class="eyebrow">MINECRAFT TOOLS</div><h2>Minecraft utilities</h2><p>Quick Minecraft account and server information without leaving Discord.</p></div>
+  <div class="grid two"><article class="doc-card"><h3>/mc-profile</h3><p>Look up Minecraft account information such as UUID, skin, cape and NameMC information.</p><code>/mc-profile username: Notch</code></article><article class="doc-card"><h3>/mcstatus</h3><p>Check a Minecraft Java server for status, players, latency, version, MOTD and DNS information.</p><code>/mcstatus address: play.hypixel.net</code></article></div>
+</section>
+
+<section id="permissions" class="section">
+  <div class="page-head"><div class="eyebrow">DISCORD</div><h2>Permissions & Safety</h2><p>Discord permissions and role hierarchy always control what Vortexia can do.</p></div>
+  <div class="grid two">
+    <article class="doc-card"><h3>Moderation permissions</h3><p>Ban, kick, timeout, message management, channel management and role management require the corresponding Discord permissions.</p></article>
+    <article class="doc-card"><h3>Bot role position</h3><p>Place the Vortexia bot role above roles it needs to manage. Discord role hierarchy can block otherwise valid actions.</p></article>
+    <article class="doc-card"><h3>Administrator features</h3><p>Some setup and server-wide systems may require administrator access or specific management permissions.</p></article>
+    <article class="doc-card"><h3>Keep secrets private</h3><p>Never publish bot tokens, API keys, SMTP credentials or private configuration files in the docs repository.</p></article>
+  </div>
+</section>
+
+<section id="selfhost" class="section">
+  <div class="page-head"><div class="eyebrow">DEVELOPERS</div><h2>Self-hosting</h2><p>For owners running their own Vortexia instance. The documentation build references Node.js 25.9.0 and discord.js 14.x.</p></div>
+  <div class="codebox"><div class="code-title">Basic setup</div><pre>1. Install Node.js 25.9.0
+2. Keep your bot token and API keys private
+3. Configure your bot's environment/configuration
+4. Install dependencies: npm install
+5. Start the bot using your project's start command</pre></div>
+  <div class="callout warning"><b>Security:</b> GitHub Pages is for the public documentation website. Never upload <code>config.json</code>, bot tokens, database credentials or other secrets.</div>
+</section>
+
+<footer><div><b>VORTEXIA</b><span> • Premium Discord Bot</span></div><div><a href="https://discord.com/oauth2/authorize?client_id=1205185289627115670&permissions=8&scope=bot" target="_blank" rel="noopener">Add Bot</a> · <a href="https://discord.gg/7RfWAKeAZZ" target="_blank" rel="noopener">Support</a></div></footer>
+</main>
+</div>
+
+<div id="modal" class="modal" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-label="Command details">
+  <div class="modal-inner"><button id="modalClose" aria-label="Close">×</button><div id="modalBody"></div></div>
+</div>
+
+<script>
+window.VORTEXIA_COMMANDS = [
+{"name":"help","cat":"Utility","desc":"Open the Vortexia help and command browser.","syntax":"/help"},
+{"name":"ping","cat":"Utility","desc":"Check Vortexia response latency.","syntax":"/ping"},
+{"name":"serverinfo","cat":"Utility","desc":"Show detailed information about the current server.","syntax":"/serverinfo"},
+{"name":"userinfo","cat":"Utility","desc":"Show information about a Discord member.","syntax":"/userinfo [user]"},
+{"name":"avatar","cat":"Utility","desc":"Show a user's avatar.","syntax":"/avatar [user]"},
+{"name":"banner","cat":"Utility","desc":"Show a user's Discord banner.","syntax":"/banner [user]"},
+{"name":"servericon","cat":"Utility","desc":"Show the server icon.","syntax":"/servericon"},
+{"name":"roles","cat":"Utility","desc":"List the server's roles.","syntax":"/roles"},
+{"name":"channelinfo","cat":"Utility","desc":"Show information about a channel.","syntax":"/channelinfo [channel]"},
+{"name":"createinvite","cat":"Utility","desc":"Create an invite link for a channel.","syntax":"/createinvite [channel]"},
+{"name":"perms","cat":"Utility","desc":"Check a member's permissions.","syntax":"/perms <user>"},
+{"name":"poll","cat":"Utility","desc":"Create a quick poll.","syntax":"/poll <question> [options]"},
+{"name":"remind","cat":"Utility","desc":"Set a reminder.","syntax":"/remind <duration> <message>"},
+{"name":"afk","cat":"Utility","desc":"Set your AFK status.","syntax":"/afk [reason]"},
+{"name":"password","cat":"Utility","desc":"Generate a secure random password.","syntax":"/password"},
+{"name":"base64","cat":"Utility","desc":"Encode or decode Base64 text.","syntax":"/base64 <action> <text>"},
+{"name":"timestamp","cat":"Utility","desc":"Generate Discord timestamp formats.","syntax":"/timestamp <time>"},
+{"name":"color","cat":"Utility","desc":"Preview a color by hex or name.","syntax":"/color <value>"},
+{"name":"uptime","cat":"Utility","desc":"Show how long Vortexia has been online.","syntax":"/uptime"},
+{"name":"ban","cat":"Moderation","desc":"Ban a member from the server.","syntax":"/ban <user> [reason]"},
+{"name":"unban","cat":"Moderation","desc":"Unban a user.","syntax":"/unban <user-id> [reason]"},
+{"name":"kick","cat":"Moderation","desc":"Kick a member from the server.","syntax":"/kick <user> [reason]"},
+{"name":"timeout","cat":"Moderation","desc":"Timeout a member.","syntax":"/timeout <user> <duration> [reason]"},
+{"name":"softban","cat":"Moderation","desc":"Ban and immediately unban a member to remove recent messages.","syntax":"/softban <user> [reason]"},
+{"name":"warnings","cat":"Moderation","desc":"View a member's warnings.","syntax":"/warnings <user>"},
+{"name":"clearwarns","cat":"Moderation","desc":"Clear a member's warnings.","syntax":"/clearwarns <user>"},
+{"name":"role","cat":"Moderation","desc":"Add or remove a role from a member.","syntax":"/role <user> <role> <action>"},
+{"name":"purge","cat":"Moderation","desc":"Bulk-delete recent messages.","syntax":"/purge <amount>"},
+{"name":"slowmode","cat":"Moderation","desc":"Configure channel slowmode.","syntax":"/slowmode <seconds>"},
+{"name":"lock","cat":"Moderation","desc":"Lock a channel for members.","syntax":"/lock [channel]"},
+{"name":"unlock","cat":"Moderation","desc":"Unlock a channel.","syntax":"/unlock [channel]"},
+{"name":"snipe","cat":"Moderation","desc":"Show the latest deleted message.","syntax":"/snipe"},
+{"name":"editsnipe","cat":"Moderation","desc":"Show the latest edited message.","syntax":"/editsnipe"},
+{"name":"report","cat":"Moderation","desc":"Send a member report to staff.","syntax":"/report <user> <reason>"},
+{"name":"automod","cat":"Security","desc":"Open the AutoMod configuration panel.","syntax":"/automod"},
+{"name":"banword","cat":"Security","desc":"Manage banned words.","syntax":"/banword"},
+{"name":"automod-strikes","cat":"Security","desc":"View or clear AutoMod strikes.","syntax":"/automod-strikes [user]"},
+{"name":"antiraid","cat":"Security","desc":"Configure anti-raid protections.","syntax":"/antiraid"},
+{"name":"welcome","cat":"Admin","desc":"Open the interactive Welcome configuration panel.","syntax":"/welcome"},
+{"name":"dashboard","cat":"Admin","desc":"Open the Vortexia server control dashboard.","syntax":"/dashboard"},
+{"name":"ticket","cat":"Tickets","desc":"Open or manage the professional ticket system.","syntax":"/ticket <action>"},
+{"name":"invite-panel","cat":"Invites","desc":"Manage the Invite Tracker panel, channel, messages and statistics.","syntax":"/invite-panel"},
+{"name":"invites","cat":"Invites","desc":"Check invitation statistics for yourself or another member.","syntax":"/invites [user]"},
+{"name":"invitestats-setup","cat":"Invites","desc":"Open the simple Invite Tracker setup panel.","syntax":"/invitestats-setup"},
+{"name":"invitereset","cat":"Invites","desc":"Reset server invite tracking data.","syntax":"/invitereset"},
+{"name":"balance","cat":"Economy","desc":"Check a member's coin balance.","syntax":"/balance [user]"},
+{"name":"daily","cat":"Economy","desc":"Claim daily coins.","syntax":"/daily"},
+{"name":"work","cat":"Economy","desc":"Work and earn coins.","syntax":"/work"},
+{"name":"pay","cat":"Economy","desc":"Pay coins to another member.","syntax":"/pay <user> <amount>"},
+{"name":"eco-leaderboard","cat":"Economy","desc":"View the economy leaderboard.","syntax":"/eco-leaderboard"},
+{"name":"eco-set","cat":"Admin","desc":"Set a member's economy balance.","syntax":"/eco-set <user> <amount>"},
+{"name":"rank","cat":"Levels","desc":"Check a member's level rank.","syntax":"/rank [user]"},
+{"name":"level-leaderboard","cat":"Levels","desc":"View the server leveling leaderboard.","syntax":"/level-leaderboard"},
+{"name":"level-setup","cat":"Levels","desc":"Open the leveling setup dashboard.","syntax":"/level-setup"},
+{"name":"music","cat":"Music","desc":"Open the advanced Vortexia music player.","syntax":"/music [query]"},
+{"name":"lyrics","cat":"Music","desc":"Show lyrics for the current track when available.","syntax":"/lyrics"},
+{"name":"mc-profile","cat":"Minecraft","desc":"Look up Minecraft account information.","syntax":"/mc-profile <username>"},
+{"name":"mcstatus","cat":"Minecraft","desc":"Check a Minecraft Java server.","syntax":"/mcstatus <address>"},
+{"name":"v2builder","cat":"Builders","desc":"Open the Components V2 builder.","syntax":"/v2builder"},
+{"name":"v2edit","cat":"Builders","desc":"Edit an existing Components V2 message.","syntax":"/v2edit"},
+{"name":"embed","cat":"Builders","desc":"Open the embed builder.","syntax":"/embed"},
+{"name":"joke","cat":"Fun","desc":"Get a random joke.","syntax":"/joke"},
+{"name":"coinflip","cat":"Fun","desc":"Flip a coin.","syntax":"/coinflip"},
+{"name":"dice","cat":"Fun","desc":"Roll a dice.","syntax":"/dice"},
+{"name":"ship","cat":"Fun","desc":"Check compatibility between two users.","syntax":"/ship <user1> <user2>"},
+{"name":"gay","cat":"Fun","desc":"Fun percentage meter.","syntax":"/gay [user]"}
+];
+</script>
+<script src="app.js"></script>
+</body>
+</html>
