@@ -415,6 +415,16 @@ $('#reviewForm').addEventListener('submit',async e=>{e.preventDefault();if(!sele
   } catch (e) { base = DEFAULT_API; }
   window.VORTEXIA_API_BASE = (base || "").replace(/\/$/, "");
 })();
+
+// Clear legacy insecure HTTP API overrides when this site is HTTPS.
+// The previous value could force mixed-content requests and make the bot look offline.
+try {
+  if (location.protocol === 'https:') {
+    const saved = localStorage.getItem('vortexia_api_base') || '';
+    if (saved.startsWith('http://')) localStorage.removeItem('vortexia_api_base');
+  }
+} catch {}
+
 const API = (p) => (window.VORTEXIA_API_BASE || "") + p;
 
 // Live connection to the Vortexia bot API. Static command data remains as a fallback.
