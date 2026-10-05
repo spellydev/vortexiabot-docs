@@ -130,12 +130,108 @@ function stars(n){return '★'.repeat(n)+'☆'.repeat(5-n)}function renderReview
 $$('.star').forEach(b=>b.addEventListener('click',()=>{selectedRating=Number(b.dataset.star);$$('.star').forEach(s=>s.classList.toggle('active',Number(s.dataset.star)<=selectedRating))}));
 $('#reviewForm').addEventListener('submit',async e=>{e.preventDefault();if(!selectedRating){alert('Please choose a rating first.');return}const review={name:$('#reviewName').value.trim(),rating:selectedRating,text:$('#reviewText').value.trim(),createdAt:new Date().toISOString()};if(!review.name||!review.text)return;reviews.push(review);localStorage.setItem(reviewKey,JSON.stringify(reviews));renderReviews();e.target.reset();selectedRating=0;$$('.star').forEach(s=>s.classList.remove('active'));showSection('reviews')});renderReviews();renderCmds();
 
+// ===== Vortexia API base (GitHub Pages ↔ Bot) =====
+// 1) When you open the site FROM the bot (http://localhost:3000) → leave auto (same origin).
+// 2) When site is on GitHub Pages, set your public bot HTTPS URL below.
+// 3) Optional: open site with ?api=https://your-bot-url to override without editing file.
+(function () {
+  const DEFAULT_API = "http://localhost:3000"; // change to https://YOUR-PUBLIC-BOT-URL when bot is online
+  let base = "";
+  try {
+    const q = new URLSearchParams(location.search).get("api");
+    if (q) { base = q; localStorage.setItem("vortexia_api_base", q); }
+    else if (localStorage.getItem("vortexia_api_base")) base = localStorage.getItem("vortexia_api_base");
+    else if (location.port === "3000" || location.hostname === "localhost" || location.hostname === "127.0.0.1") base = "";
+    else if (location.hostname.includes("vortexia.run.place") || location.hostname.includes("github.io")) base = DEFAULT_API;
+    else base = "";
+  } catch (e) { base = DEFAULT_API; }
+  window.VORTEXIA_API_BASE = (base || "").replace(/\/$/, "");
+})();
+const API = (p) => (window.VORTEXIA_API_BASE || "") + p;
+
 // Live connection to the Vortexia bot API. Static command data remains as a fallback.
-async function api(path,options={}){const r=await fetch(path,{credentials:'same-origin',...options});let d={};try{d=await r.json()}catch{}if(!r.ok)throw new Error(d.error||`Request failed (${r.status})`);return d}
-async function refreshLive(){try{const d=await api('/api/stats');$('#liveText').textContent=`Online • ${d.guilds} servers • ${d.ping}ms`}catch{$('#liveText').textContent='Offline / static mode'}}
-async function loadLiveCommands(){try{const d=await api('/api/commands');if(Array.isArray(d.commands)&&d.commands.length){CMDS=d.commands;catTabs.innerHTML='';const cats=['All',...new Set(CMDS.map(c=>c.category||'Other'))];cats.forEach(c=>{const b=document.createElement('button');b.className='tab'+(c==='All'?' active':'');b.textContent=c;b.onclick=()=>{activeCat=c;$$('.tab').forEach(x=>x.classList.toggle('active',x===b));renderCmds()};catTabs.appendChild(b)});$('#categoryStat').textContent=cats.length-1;renderCmds()}}catch{}}
-async function loadGuild(id){if(!id)return;try{const d=await api('/api/guilds/'+encodeURIComponent(id));const g=d.guild;$('#guildInfo').innerHTML=[['Members',g.members],['Channels',g.channels],['Roles',g.roles],['Owner',g.owner?'Yes':'No']].map(x=>`<div class="dash-card"><span>${esc(x[0])}</span><strong>${esc(x[1])}</strong></div>`).join('');const labels={automod:'AutoMod',welcome:'Welcome',autorole:'Auto Role',leveling:'Leveling',tickets:'Tickets',invites:'Invite Tracker',commandLog:'Command Log',statsBoard:'Stats Board'};$('#featureGrid').innerHTML=Object.entries(d.features).map(([k,v])=>`<div class="feature-state"><span>${labels[k]||k}</span><b class="${v?'on':'off'}">${v?'Enabled':'Not configured'}</b></div>`).join('')}catch(e){$('#guildInfo').innerHTML=`<div class="empty">${esc(e.message)}</div>`}}
-async function setupDashboard(){const login=()=>location.href='/api/auth/login';$('#loginBtn').onclick=login;$$('[data-login]').forEach(b=>b.onclick=login);try{const me=await api('/api/auth/me');$('#loginBtn').textContent=me.user.global_name||me.user.username;$('#loginBtn').onclick=()=>showSection('dashboard');$('#dashboardLogin').hidden=true;$('#dashboardApp').hidden=false;const d=await api('/api/guilds');const sel=$('#guildSelect');sel.innerHTML='<option value="">Select a server…</option>'+d.guilds.map(g=>`<option value="${esc(g.id)}">${esc(g.name)}</option>`).join('');sel.onchange=()=>loadGuild(sel.value);if(d.guilds.length){sel.value=d.guilds[0].id;loadGuild(sel.value)}}catch{}}
-$('#refreshGuild').onclick=()=>loadGuild($('#guildSelect').value);$('#logoutBtn').onclick=async()=>{await api('/api/auth/logout',{method:'POST'});location.reload()};refreshLive();loadLiveCommands();setupDashboard();setInterval(refreshLive,30000);
+async function api(path, options = {}) {
+  const r = await fetch(API(path), { credentials: 'include', ...options });
+  let d = {};
+  try { d = await r.json(); } catch {}
+  if (!r.ok) throw new Error(d.error || `Request failed (${r.status})`);
+  return d;
+}
+async function refreshLive() {
+  try {
+    const d = await api('/api/stats');
+    $('#liveText').textContent = `Online • ${d.guilds} servers • ${d.ping}ms`;
+  } catch {
+    $('#liveText').textContent = 'Offline / static mode';
+  }
+}
+async function loadLiveCommands() {
+  try {
+    const d = await api('/api/commands');
+    if (Array.isArray(d.commands) && d.commands.length) {
+      CMDS = d.commands;
+      catTabs.innerHTML = '';
+      const cats = ['All', ...new Set(CMDS.map(c => c.category || 'Other'))];
+      cats.forEach(c => {
+        const b = document.createElement('button');
+        b.className = 'tab' + (c === 'All' ? ' active' : '');
+        b.textContent = c;
+        b.onclick = () => { activeCat = c; $$('.tab').forEach(x => x.classList.toggle('active', x === b)); renderCmds(); };
+        catTabs.appendChild(b);
+      });
+      $('#categoryStat').textContent = cats.length - 1;
+      renderCmds();
+    }
+  } catch {}
+}
+async function loadGuild(id) {
+  if (!id) return;
+  try {
+    const d = await api('/api/guilds/' + encodeURIComponent(id));
+    const g = d.guild;
+    $('#guildInfo').innerHTML = [['Members', g.members], ['Channels', g.channels], ['Roles', g.roles], ['Owner', g.owner ? 'Yes' : 'No']]
+      .map(x => `<div class="dash-card"><span>${esc(x[0])}</span><strong>${esc(x[1])}</strong></div>`).join('');
+    const labels = { automod: 'AutoMod', welcome: 'Welcome', autorole: 'Auto Role', leveling: 'Leveling', tickets: 'Tickets', invites: 'Invite Tracker', commandLog: 'Command Log', statsBoard: 'Stats Board' };
+    $('#featureGrid').innerHTML = Object.entries(d.features).map(([k, v]) =>
+      `<div class="feature-state"><span>${labels[k] || k}</span><b class="${v ? 'on' : 'off'}">${v ? 'Enabled' : 'Not configured'}</b></div>`
+    ).join('');
+  } catch (e) {
+    $('#guildInfo').innerHTML = `<div class="empty">${esc(e.message)}</div>`;
+  }
+}
+async function setupDashboard() {
+  const login = () => { location.href = API('/api/auth/login'); };
+  $('#loginBtn').onclick = login;
+  $$('[data-login]').forEach(b => b.onclick = login);
+  // Handle return from OAuth
+  try {
+    const q = new URLSearchParams(location.search);
+    if (q.get('login') === 'success') {
+      history.replaceState({}, '', location.pathname);
+      showSection('dashboard');
+    } else if (q.get('login') === 'error') {
+      history.replaceState({}, '', location.pathname);
+      alert('Login failed: ' + (q.get('message') || 'unknown error'));
+    }
+  } catch {}
+  try {
+    const me = await api('/api/auth/me');
+    $('#loginBtn').textContent = me.user.global_name || me.user.username;
+    $('#loginBtn').onclick = () => showSection('dashboard');
+    $('#dashboardLogin').hidden = true;
+    $('#dashboardApp').hidden = false;
+    const d = await api('/api/guilds');
+    const sel = $('#guildSelect');
+    sel.innerHTML = '<option value="">Select a server…</option>' + d.guilds.map(g => `<option value="${esc(g.id)}">${esc(g.name)}</option>`).join('');
+    sel.onchange = () => loadGuild(sel.value);
+    if (d.guilds.length) { sel.value = d.guilds[0].id; loadGuild(sel.value); }
+  } catch {}
+}
+$('#refreshGuild').onclick = () => loadGuild($('#guildSelect').value);
+$('#logoutBtn').onclick = async () => { await api('/api/auth/logout', { method: 'POST' }); location.reload(); };
+refreshLive();
+loadLiveCommands();
+setupDashboard();
+setInterval(refreshLive, 30000);
 </script>
 </body></html>
