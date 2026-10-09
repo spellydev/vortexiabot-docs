@@ -1,4 +1,3 @@
 User-agent: *
 Allow: /
-
 Sitemap: https://vortexia.run.place/sitemap.xml
