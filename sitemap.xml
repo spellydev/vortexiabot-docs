@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-  <url>
-    <loc>https://vortexia.run.place/</loc>
-    <lastmod>2026-10-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-    <image:image><image:loc>https://vortexia.run.place/logo.png</image:loc><image:title>Vortexia Discord Bot logo</image:title></image:image>
-  </url>
+  <url><loc>https://vortexia.run.place/</loc><lastmod>2026-10-15</lastmod><image:image><image:loc>https://vortexia.run.place/logo.png</image:loc><image:title>Vortexia Discord Bot logo</image:title></image:image></url>
+  <url><loc>https://vortexia.run.place/commands</loc><lastmod>2026-10-15</lastmod></url>
+  <url><loc>https://vortexia.run.place/music-bot</loc><lastmod>2026-10-15</lastmod></url>
+  <url><loc>https://vortexia.run.place/moderation-bot</loc><lastmod>2026-10-15</lastmod></url>
+  <url><loc>https://vortexia.run.place/ticket-bot</loc><lastmod>2026-10-15</lastmod></url>
+  <url><loc>https://vortexia.run.place/economy-leveling-bot</loc><lastmod>2026-10-15</lastmod></url>
+  <url><loc>https://vortexia.run.place/about</loc><lastmod>2026-10-15</lastmod></url>
 </urlset>
