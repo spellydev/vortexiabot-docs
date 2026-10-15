@@ -1,0 +1,12 @@
+# Vortexia
+> Free all-in-one Discord bot: Lavalink music, moderation, AutoMod, tickets, economy and leveling.
+
+- [Home](https://vortexia.run.place/)
+- [Add bot](https://vortexia.run.place/add-bot)
+- [Commands](https://vortexia.run.place/commands)
+- [Music](https://vortexia.run.place/music-bot)
+- [Moderation](https://vortexia.run.place/moderation-bot)
+- [Tickets](https://vortexia.run.place/ticket-bot)
+- [Economy & leveling](https://vortexia.run.place/economy-leveling-bot)
+- [FAQ](https://vortexia.run.place/faq)
+- [Support server](https://discord.gg/7RfWAKeAZZ)
